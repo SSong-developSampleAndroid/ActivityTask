@@ -21,6 +21,16 @@
             android:name=".BroadcastActivity"
             android:exported="false" />
 
+        <receiver
+            android:name=".receiver.OnLockBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="OnLockBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".service.AService"
             android:enabled="true"
@@ -48,15 +58,7 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".receiver.OnLockBroadcastReceiver"
-            android:enabled="true"
-            android:exported="false"
-            android:label="OnLockBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+
     </application>
 
 </manifest>
