@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ssong_develop.sampleactivitytask">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SampleActivityTask">
+        <activity
+            android:name=".Broadcast2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Broadcast1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".BroadcastActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.AService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".CActivity"
+            android:exported="false"
+            android:taskAffinity="task.test_2" />
+        <activity
+            android:name=".BActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AActivity"
+            android:exported="true"
+            android:taskAffinity="task.test_1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".receiver.OnLockBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="OnLockBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
